@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var PlayerOneScoreLabel: UILabel!
     @IBOutlet weak var PlayerTwoScoreLabel: UILabel!
-    
-    
     @IBOutlet weak var WinnerLabel: UILabel!
     
     var activePlayer  = 1 //cross
@@ -24,49 +22,38 @@ class ViewController: UIViewController {
     var tickScore = 0
     var circleScore = 0
     
-    
     @IBAction func action(_ sender: AnyObject) {
-
         if(gameState[sender.tag-1] == 0 && gameIsRunning == true){
-
             gameState[sender.tag-1] = activePlayer
-            
+         
             if(activePlayer == 1){
                 sender.setImage(UIImage(named: "plus.png"), for: UIControl.State())
                 activePlayer = 2
-    
             }
-            
             else{
                 sender.setImage(UIImage(named: "minus.png"), for: UIControl.State())
                 activePlayer = 1
-                
             }
         }
         
         for combination in winner{
             if gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]]
             {
-
-
                 gameIsRunning = false
                 
                 if gameState[combination[0]] == 1{
                     WinnerLabel.text = "Tick has won!"
                     tickScore += 1
                     PlayerOneScoreLabel.text = String(tickScore)
-                    
                 }
                 else{
                     circleScore += 1
                     PlayerTwoScoreLabel.text = String(circleScore)
                     WinnerLabel.text = "Circle has won!"
                 }
-                
+               
                 PlayAgain.isHidden = false
                 WinnerLabel.isHidden = false
-                
-                
             }
 
         }
@@ -104,24 +91,17 @@ class ViewController: UIViewController {
     }
     
     var musicPlay = AVAudioPlayer()
-    
-    
-    
-    
+
     @IBAction func SoundLabel(_ sender: Any) {
         musicPlay.play()
-        
     }
     
     @IBAction func MuteLabel(_ sender: Any) {
         musicPlay.stop()
     }
-    
-    
+
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+        super.viewDidLoad()        
         do{
             musicPlay = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Sample", ofType: "mp3")!))
             musicPlay.prepareToPlay()
@@ -131,13 +111,4 @@ class ViewController: UIViewController {
             print(error)
         }
     }
-    
-    
-
-    
-
-    
-
 }
-
-
