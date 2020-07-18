@@ -1,9 +1,3 @@
-
-## UIUX
-(<a href="https://ibb.co/RT2h2k9"><img src="https://i.ibb.co/GQ7s740/Tic-Tac-Toe-IOS.png" alt="Tic-Tac-Toe-IOS" border="0"></a>)
-
-Created By Saad Mahboob
-
 # IOS-TicTacToe
 
 Created by: **Saad Mahboob**
@@ -15,7 +9,7 @@ The following features are implemented:
 * [ ] Play again button after game ends.
 * [ ] Buttons to play and mute the music in the background of the game. 
 
-## Video Walkthrough 
+## Interface Walkthrough 
 
 Here's an image of implemented user interface:
 
